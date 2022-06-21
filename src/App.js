@@ -4,29 +4,33 @@ import Square from './components/Square';
 
 function App() {
   const [board, setBoard] = useState(["", "", "", "", "", "","", "", ""])
+  const [player, setPlayer] = useState("X");
+  const chooseSquare = (square) => {
+    setBoard(
+      board.map((val, idx) => {
+        if (idx == square && val == "") {
+          return player
+        }
+
+        return val;
+      })
+    );
+
+    if (player == "X") {
+      setPlayer("O");
+    } else {
+      setPlayer("X");
+    }
+  };
 
   return (
     <div className="App">
       <div className='board'>
       <div className='row'>
-        <Square
-         val={board[0]}
-         chooseSquare={() => {
-           alert(0);
-        }}
-        />
-         <Square
-         val={board[1]}
-         chooseSquare={() => {
-           alert(1);
-        }}
-        />
-        <Square
-         val={board[2]}
-         chooseSquare={() => {
-           alert(2);
-        }}
-        />
+        <Square val={board[0]} chooseSquare={() => {chooseSquare(0)}} />
+        <Square val={board[1]} chooseSquare={() => {chooseSquare(1)}} />
+        <Square val={board[2]} chooseSquare={() => {chooseSquare(3)}} />
+        
       </div>
       <div className='row'>
        
