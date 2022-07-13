@@ -36,7 +36,3 @@ body {
   font-size: 30px;
   color: black;
 }
-
-.square:active {
-  background-color: #0dbd82;
-}
